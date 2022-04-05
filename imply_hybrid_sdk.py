@@ -22,6 +22,24 @@ class ImplyHybridAuthenticator:
         return response
 
 
+class ImplyPrivateAuthenticator:
+
+    def __init__(self, endpoint="", username=None, password=None):
+        self.endpoint = endpoint
+        self.username = username
+        self.password = password
+        self.cert = None
+        self.basic_auth = HTTPBasicAuth(self.username, self.password)
+
+    def test(self) -> Response:
+        url = f"{self.endpoint}/status"
+        response = requests.get(
+            url=url,
+            auth=self.basic_auth
+        )
+        return response
+
+
 class Cluster:
 
     def __init__(self, auth: ImplyHybridAuthenticator):
