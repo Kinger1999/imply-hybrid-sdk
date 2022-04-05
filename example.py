@@ -5,8 +5,8 @@ import sys
 
 auth = ImplyPrivateAuthenticator(
     endpoint="http://localhost:8888",
-    username="admin",
-    password="E8riBZXQmk+BaQlg9LeaAA==",
+    username="<username>",
+    password="<password>",
 )
 response = auth.test()
 print(response.status_code, response.text)
